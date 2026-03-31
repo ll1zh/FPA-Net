@@ -6,7 +6,7 @@ from net.MSDA import MutilScaleDualAttention as MSDA
 from net.PACA import *
 
 
-class CIDNet(nn.Module, PyTorchModelHubMixin):
+class MFPNet(nn.Module, PyTorchModelHubMixin):
     def __init__(self,
                  channels=[36, 36, 72, 144],
                  heads=[1, 2, 4, 8],
@@ -72,7 +72,6 @@ class CIDNet(nn.Module, PyTorchModelHubMixin):
         self.MSDA2 = MSDA(ch3,head3)
         self.MSDA3 = MSDA(ch4,head4)
 
-        # 新增：FreMLP模块（深层+浅层，双分支）
         self.I_deep = CFMLP(ch4)  # I-branch深层（ch4=144）
         self.HV_deep = CFMLP(ch4)  # HV-branch深层（ch4=144）
         self.I_shallow = CFMLP(ch1)  # I-branch浅层（ch1=36）
@@ -123,7 +122,7 @@ class CIDNet(nn.Module, PyTorchModelHubMixin):
         # ========== 编码器深层：H/8×W/8（ch4） ==========
         i_enc4 = self.I_PACA3(i_enc3, hv_3)
         hv_4 = self.HV_PACA3(hv_3, i_enc3)
-        # 插入FreMLP（深层，残差连接）
+        
         i_enc4 = self.I_deep(i_enc4) + i_enc4
         hv_4 = self.HV_deep(hv_4) + hv_4
 
@@ -146,7 +145,7 @@ class CIDNet(nn.Module, PyTorchModelHubMixin):
         # ========== 解码器浅层：H×W（ch1） ==========
         i_dec1 = self.ID_block1(i_dec1, i_jump0)
         hv_1 = self.HVD_block1(hv_1, hv_jump0)
-        # 插入FreMLP（浅层，残差连接）
+
         i_dec1 = self.I_shallow(i_dec1) + i_dec1
         hv_1 = self.HV_shallow(hv_1) + hv_1
 
