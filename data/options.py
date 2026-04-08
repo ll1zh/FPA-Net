@@ -21,7 +21,7 @@ def option():
     parser.add_argument('--warmup_epochs', type=int, default=3, help='warmup_epochs')
     parser.add_argument('--start_warmup', type=bool, default=True, help='turn False to MFPNet without warmup')
 
-    # CIDNet datasets
+    # MFPNet datasets
     parser.add_argument('--data_train_lol_blur'     , type=str, default='./datasets/LOL_blur/MFPNet')
     parser.add_argument('--data_train_lol_v1'       , type=str, default='./datasets/LOLv1/our485')
     parser.add_argument('--data_train_lolv2_real'   , type=str, default='./datasets/LOLv2/Real_captured/Train')
@@ -69,7 +69,7 @@ def option():
     parser.add_argument('--grad_clip', type=bool, default=True, help='if gradient fluctuates too much, turn-on it')
     
     
-    # choose which dataset you want to CIDNet, please only set one "True"
+    # choose which dataset you want to MFPNet, please only set one "True"
     parser.add_argument('--lol_v1', type=bool, default=True)
     parser.add_argument('--lolv2_real', type=bool, default=False)
     parser.add_argument('--lolv2_syn', type=bool, default=False)
