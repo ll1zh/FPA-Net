@@ -6,7 +6,7 @@ from data.data import *
 from torchvision import transforms
 from torch.utils.data import DataLoader
 from loss.losses import *
-from net.CIDNet import CIDNet
+from net.MFPNet import MFPNet
 
 eval_parser = argparse.ArgumentParser(description='Eval')
 eval_parser.add_argument('--perc', action='store_true', help='trained with perceptual loss')
@@ -90,15 +90,7 @@ if __name__ == '__main__':
     num_workers = 1
     alpha = None
 
-    if ep.own:
-        eval_data = DataLoader(dataset=get_eval_set("./datasets/SelfBuiltDataset/eval15/low"), num_workers=num_workers, batch_size=1, shuffle=False)
-        output_folder = './output/SelfBuiltDataset/'
-        if ep.perc:
-            weight_path = './weights/MyLOLv1/CIDNet+GateFre/epoch_220_best_psnr.pth'
-        else:
-            weight_path = './weights/MyLOLv1/CIDNet+GateFre/epoch_220_best_psnr.pth'
-
-    elif ep.lol:
+    if ep.lol:
         eval_data = DataLoader(dataset=get_eval_set("./datasets/LOLdataset/eval15/low"), num_workers=num_workers, batch_size=1, shuffle=False)
         output_folder = './output/LOLv1/'
         if ep.perc:
