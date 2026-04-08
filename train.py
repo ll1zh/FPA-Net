@@ -101,12 +101,7 @@ def checkpoint(epoch):
     
 def load_datasets():
     print('===> Loading datasets')
-    if opt.lol_v1 or opt.lol_blur or opt.lolv2_real or opt.lolv2_syn or opt.SID or opt.SICE_mix or opt.SICE_grad or opt.own:
-        if opt.own:
-            train_set = get_own_training_set(opt.data_train_own,size=opt.cropSize)
-            training_data_loader = DataLoader(dataset=train_set, num_workers=opt.threads, batch_size=opt.batchSize, shuffle=opt.shuffle)
-            test_set = get_eval_set(opt.data_val_own)
-            testing_data_loader = DataLoader(dataset=test_set, num_workers=opt.threads, batch_size=1, shuffle=False)
+    if opt.lol_v1 or opt.lol_blur or opt.lolv2_real or opt.lolv2_syn or opt.SID or opt.SICE_mix or opt.SICE_grad:
 
         if opt.lol_v1:
             train_set = get_lol_training_set(opt.data_train_lol_v1,size=opt.cropSize)
@@ -228,9 +223,6 @@ if __name__ == '__main__':
             model_out_path = checkpoint(epoch) 
             norm_size = True
 
-            if opt.own:
-                output_folder = 'own/'
-                label_dir = opt.data_valgt_own
             # LOL three subsets
             if opt.lol_v1:
                 output_folder = 'LOLv1/'
