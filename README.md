@@ -110,7 +110,7 @@ Put your datasets in the following folder:
 ```
 </details>
 
-## 3. Training 🌓
+## 3. Training 
 
 - We put all the configurations that need to be adjusted in the `./data/options.py` folder and explained them in the file.
 
