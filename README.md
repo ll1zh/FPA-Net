@@ -1,4 +1,3 @@
-# This code is for The Visual Computer submission
 ## 1. Environment
 
 ### python and pytorch version
