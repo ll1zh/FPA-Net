@@ -2,10 +2,10 @@ import argparse
 
 def option():
     # Training settings
-    parser = argparse.ArgumentParser(description='MFPNet')
+    parser = argparse.ArgumentParser(description='FPANet')
     parser.add_argument('--batchSize', type=int, default=8, help='training batch size')
     parser.add_argument('--cropSize', type=int, default=256, help='image crop size (patch size)')
-    parser.add_argument('--nEpochs', type=int, default=1000, help='number of epochs to MFPNet for end')
+    parser.add_argument('--nEpochs', type=int, default=1000, help='number of epochs to FPANet for end')
     parser.add_argument('--start_epoch', type=int, default=0, help='number of epochs to start, >0 is retrained a pre-trained pth')
     parser.add_argument('--snapshots', type=int, default=10, help='Snapshots for save checkpoints pth')
     parser.add_argument('--lr', type=float, default=1e-4, help='Learning Rate')
@@ -19,16 +19,16 @@ def option():
 
     # warmup training
     parser.add_argument('--warmup_epochs', type=int, default=3, help='warmup_epochs')
-    parser.add_argument('--start_warmup', type=bool, default=True, help='turn False to MFPNet without warmup')
+    parser.add_argument('--start_warmup', type=bool, default=True, help='turn False to FPANet without warmup')
 
-    # MFPNet datasets
-    parser.add_argument('--data_train_lol_blur'     , type=str, default='./datasets/LOL_blur/MFPNet')
+    # FPANet datasets
+    parser.add_argument('--data_train_lol_blur'     , type=str, default='./datasets/LOL_blur/FPANet')
     parser.add_argument('--data_train_lol_v1'       , type=str, default='./datasets/LOLv1/our485')
     parser.add_argument('--data_train_lolv2_real'   , type=str, default='./datasets/LOLv2/Real_captured/Train')
     parser.add_argument('--data_train_lolv2_syn'    , type=str, default='./datasets/LOLv2/Synthetic/Train')
-    parser.add_argument('--data_train_SID'          , type=str, default='./datasets/Sony_total_dark/MFPNet')
-    parser.add_argument('--data_train_SICE'         , type=str, default='./datasets/SICE/Dataset/MFPNet')
-    parser.add_argument('--data_train_fivek'        , type=str, default='./datasets/FiveK/MFPNet')
+    parser.add_argument('--data_train_SID'          , type=str, default='./datasets/Sony_total_dark/FPANet')
+    parser.add_argument('--data_train_SICE'         , type=str, default='./datasets/SICE/Dataset/FPANet')
+    parser.add_argument('--data_train_fivek'        , type=str, default='./datasets/FiveK/FPANet')
 
     # validation input
     parser.add_argument('--data_val_lol_blur'       , type=str, default='./datasets/LOL_blur/eval15/low_blur')
@@ -69,7 +69,7 @@ def option():
     parser.add_argument('--grad_clip', type=bool, default=True, help='if gradient fluctuates too much, turn-on it')
     
     
-    # choose which dataset you want to MFPNet, please only set one "True"
+    # choose which dataset you want to FPANet, please only set one "True"
     parser.add_argument('--lol_v1', type=bool, default=True)
     parser.add_argument('--lolv2_real', type=bool, default=False)
     parser.add_argument('--lolv2_syn', type=bool, default=False)
