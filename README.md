@@ -127,15 +127,13 @@ python train.py --dataset lol_v1
 
 ```bash
 # LOLv1
-python eval.py --lol --perc # weights that trained with perceptual loss
-python eval.py --lol # weights that trained without perceptual loss
+python eval.py --lol
 
 # LOLv2-real
-python eval.py --lol_v2_real --best_GT_mean # you can choose best_GT_mean or best_PSNR or best_SSIM
+python eval.py --lol_v2_real
 
 # LOLv2-syn
-python eval.py --lol_v2_syn --perc # weights that trained with perceptual loss
-python eval.py --lol_v2_syn # weights that trained without perceptual loss
+python eval.py --lol_v2_syn
 
 # FiveK
-python eval.py --fivek # output FiveK follow Retinexformer
+python eval.py --fivek
