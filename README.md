@@ -2,8 +2,8 @@
 
 ### python and pytorch version
 
-- Python 3.7.0
-- Pytorch 1.13.1
+- Python 3.10.16
+- Pytorch 2.1.2
 
 ### Install Dependencies
 
