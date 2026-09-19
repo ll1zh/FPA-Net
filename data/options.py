@@ -22,32 +22,21 @@ def option():
     parser.add_argument('--start_warmup', type=bool, default=True, help='turn False to FPANet without warmup')
 
     # FPANet datasets
-    parser.add_argument('--data_train_lol_blur'     , type=str, default='./datasets/LOL_blur/FPANet')
-    parser.add_argument('--data_train_lol_v1'       , type=str, default='./datasets/LOLv1/our485')
+    parser.add_argument('--data_train_lol_v1'       , type=str, default='./datasets/LOLdataset/our485')
     parser.add_argument('--data_train_lolv2_real'   , type=str, default='./datasets/LOLv2/Real_captured/Train')
     parser.add_argument('--data_train_lolv2_syn'    , type=str, default='./datasets/LOLv2/Synthetic/Train')
-    parser.add_argument('--data_train_SID'          , type=str, default='./datasets/Sony_total_dark/FPANet')
-    parser.add_argument('--data_train_SICE'         , type=str, default='./datasets/SICE/Dataset/FPANet')
     parser.add_argument('--data_train_fivek'        , type=str, default='./datasets/FiveK/FPANet')
 
     # validation input
-    parser.add_argument('--data_val_lol_blur'       , type=str, default='./datasets/LOL_blur/eval15/low_blur')
-    parser.add_argument('--data_val_lol_v1'         , type=str, default='./datasets/LOLv1/eval15/low')
+    parser.add_argument('--data_val_lol_v1'         , type=str, default='./datasets/LOLdataset/eval15/low')
     parser.add_argument('--data_val_lolv2_real'     , type=str, default='./datasets/LOLv2/Real_captured/Test/Low')
     parser.add_argument('--data_val_lolv2_syn'      , type=str, default='./datasets/LOLv2/Synthetic/Test/Low')
-    parser.add_argument('--data_val_SID'            , type=str, default='./datasets/Sony_total_dark/eval15/short')
-    parser.add_argument('--data_val_SICE_mix'       , type=str, default='./datasets/SICE/Dataset/eval15/test')
-    parser.add_argument('--data_val_SICE_grad'      , type=str, default='./datasets/SICE/Dataset/eval15/test')
     parser.add_argument('--data_test_fivek'         , type=str, default='./datasets/FiveK/test/input')
 
     # validation groundtruth
-    parser.add_argument('--data_valgt_lol_blur'     , type=str, default='./datasets/LOL_blur/eval15/high_sharp_scaled/')
-    parser.add_argument('--data_valgt_lol_v1'       , type=str, default='./datasets/LOLv1/eval15/high/')
+    parser.add_argument('--data_valgt_lol_v1'       , type=str, default='./datasets/LOLdataset/eval15/high/')
     parser.add_argument('--data_valgt_lolv2_real'   , type=str, default='./datasets/LOLv2/Real_captured/Test/Normal/')
     parser.add_argument('--data_valgt_lolv2_syn'    , type=str, default='./datasets/LOLv2/Synthetic/Test/Normal/')
-    parser.add_argument('--data_valgt_SID'          , type=str, default='./datasets/Sony_total_dark/eval15/long/')
-    parser.add_argument('--data_valgt_SICE_mix'     , type=str, default='./datasets/SICE/Dataset/eval15/target/')
-    parser.add_argument('--data_valgt_SICE_grad'    , type=str, default='./datasets/SICE/Dataset/eval15/target/')
     parser.add_argument('--data_valgt_fivek'        , type=str, default='./datasets/FiveK/test/target/')
 
     parser.add_argument('--val_folder', default='./results/', help='Location to save validation datasets')
@@ -73,9 +62,5 @@ def option():
     parser.add_argument('--lol_v1', type=bool, default=True)
     parser.add_argument('--lolv2_real', type=bool, default=False)
     parser.add_argument('--lolv2_syn', type=bool, default=False)
-    parser.add_argument('--lol_blur', type=bool, default=False)
-    parser.add_argument('--SID', type=bool, default=False)
-    parser.add_argument('--SICE_mix', type=bool, default=False)
-    parser.add_argument('--SICE_grad', type=bool, default=False)
     parser.add_argument('--fivek', type=bool, default=False)
     return parser
