@@ -1,6 +1,5 @@
 from net.HVI_transform import RGB_HVI
 from net.transformer_utils import *
-from huggingface_hub import PyTorchModelHubMixin
 from net.CFMLP import *
 from net.MSDA import MutilScaleDualAttention as MSDA
 from net.PACA import *
